@@ -14,7 +14,7 @@ public abstract class StabbedActivity extends Activity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mActivityHelper.onCreate(this);
+        mActivityHelper.onCreate(this, getModules());
     }
 
     @Override
