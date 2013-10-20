@@ -1,4 +1,4 @@
-Stabbed Android
+Stabbed Android [![Build Status](http://ci.psdev.de/job/PSDevStabbedAndroid/badge/icon)](http://ci.psdev.de/job/PSDevStabbedAndroid/)
 ==========
 
 Base classes for using [Squares Dagger][1] in Android Apps.
