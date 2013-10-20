@@ -12,7 +12,7 @@ Download [the latest JAR][2] or grab via Maven:
 <dependency>
   <groupId>de.psdev</groupId>
   <artifactId>stabbed-android</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
