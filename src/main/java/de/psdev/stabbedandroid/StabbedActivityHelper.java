@@ -3,10 +3,12 @@ package de.psdev.stabbedandroid;
 import android.app.Activity;
 import dagger.ObjectGraph;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public final class StabbedActivityHelper {
 
+    @Nullable
     private ObjectGraph mActivityGraph;
 
     void onCreate(final Activity activity, final List<Object> modules) {
@@ -28,9 +30,13 @@ public final class StabbedActivityHelper {
      * Inject the supplied {@code object} using the activity-specific graph.
      */
     void inject(final Object object) {
+        if (mActivityGraph == null) {
+            throw new IllegalStateException("Used inject outside of activity lifecycle, or call to onCreate missing.");
+        }
         mActivityGraph.inject(object);
     }
 
+    @Nullable
     public ObjectGraph getActivityGraph() {
         return mActivityGraph;
     }
