@@ -8,18 +8,18 @@ import java.util.List;
 
 public abstract class StabbedActivity extends Activity {
 
-    private final StabbedActivityHelper mActivityHelper = new StabbedActivityHelper();
+    private final ExtendedGraphHelper mExtendedGraphHelper = new ExtendedGraphHelper();
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mActivityHelper.onCreate(this, getModules());
+        mExtendedGraphHelper.onCreate(this, getModules());
     }
 
     @Override
     protected void onDestroy() {
-        mActivityHelper.onDestroy();
+        mExtendedGraphHelper.onDestroy();
         super.onDestroy();
     }
 
@@ -34,10 +34,10 @@ public abstract class StabbedActivity extends Activity {
      * Inject the supplied {@code object} using the activity-specific graph.
      */
     void inject(final Object object) {
-        mActivityHelper.inject(object);
+        mExtendedGraphHelper.inject(object);
     }
 
     ObjectGraph getActivityGraph() {
-        return mActivityHelper.getActivityGraph();
+        return mExtendedGraphHelper.getExtendedGraph();
     }
 }

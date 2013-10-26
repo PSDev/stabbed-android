@@ -1,43 +1,43 @@
 package de.psdev.stabbedandroid;
 
-import android.app.Activity;
+import android.content.Context;
 import dagger.ObjectGraph;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public final class StabbedActivityHelper {
+public final class ExtendedGraphHelper {
 
     @Nullable
-    private ObjectGraph mActivityGraph;
+    private ObjectGraph mExtendedGraph;
 
-    void onCreate(final Activity activity, final List<Object> modules) {
+    void onCreate(final Context context, final List<Object> modules) {
         // Create the activity graph by .plus-ing our modules onto the application graph.
-        final StabbedApplication application = (StabbedApplication) activity.getApplication();
-        mActivityGraph = application.getApplicationGraph().plus(modules.toArray());
+        final StabbedApplication application = (StabbedApplication) context.getApplicationContext();
+        mExtendedGraph = application.getApplicationGraph().plus(modules.toArray());
 
         // Inject activity so subclasses will have dependencies fulfilled when this method returns.
-        mActivityGraph.inject(activity);
+        mExtendedGraph.inject(context);
     }
 
     void onDestroy() {
         // Eagerly clear the reference to the activity graph to allow it to be garbage collected as
         // soon as possible.
-        mActivityGraph = null;
+        mExtendedGraph = null;
     }
 
     /**
      * Inject the supplied {@code object} using the activity-specific graph.
      */
     void inject(final Object object) {
-        if (mActivityGraph == null) {
+        if (mExtendedGraph == null) {
             throw new IllegalStateException("Used inject outside of activity lifecycle, or call to onCreate missing.");
         }
-        mActivityGraph.inject(object);
+        mExtendedGraph.inject(object);
     }
 
     @Nullable
-    public ObjectGraph getActivityGraph() {
-        return mActivityGraph;
+    public ObjectGraph getExtendedGraph() {
+        return mExtendedGraph;
     }
 }
