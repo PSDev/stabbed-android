@@ -14,7 +14,7 @@ public abstract class StabbedSherlockPreferenceActivity extends SherlockPreferen
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mExtendedGraphHelper.onCreate(this, getModules());
+        mExtendedGraphHelper.onCreate(this, getModules(), this);
     }
 
     @Override

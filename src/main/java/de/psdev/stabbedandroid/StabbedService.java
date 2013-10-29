@@ -11,7 +11,7 @@ public abstract class StabbedService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mExtendedGraphHelper.onCreate(this, getModules());
+        mExtendedGraphHelper.onCreate(this, getModules(), this);
     }
 
     @Override

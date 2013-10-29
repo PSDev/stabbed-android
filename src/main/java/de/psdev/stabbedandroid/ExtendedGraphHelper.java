@@ -11,13 +11,13 @@ public final class ExtendedGraphHelper {
     @Nullable
     private ObjectGraph mExtendedGraph;
 
-    void onCreate(final Context context, final List<Object> modules) {
+    void onCreate(final Context context, final List<Object> modules, final Object target) {
         // Create the activity graph by .plus-ing our modules onto the application graph.
         final StabbedApplication application = (StabbedApplication) context.getApplicationContext();
         mExtendedGraph = application.getApplicationGraph().plus(modules.toArray());
 
         // Inject activity so subclasses will have dependencies fulfilled when this method returns.
-        mExtendedGraph.inject(context);
+        mExtendedGraph.inject(target);
     }
 
     void onDestroy() {

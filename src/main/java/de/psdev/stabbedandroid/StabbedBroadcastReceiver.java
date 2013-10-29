@@ -12,8 +12,7 @@ public abstract class StabbedBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public final void onReceive(final Context context, final Intent intent) {
-        mExtendedGraphHelper.onCreate(context, getModules());
-        mExtendedGraphHelper.inject(this);
+        mExtendedGraphHelper.onCreate(context, getModules(), this);
 
         handleReceive(context, intent);
 
