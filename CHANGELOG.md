@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-Version 1.0.2 *(IN DEVELOPMENT)*
+Version 1.0.2 *(2013-10-30)*
 ----------------------------
 
 * Added @Nullable annotations where applicable
