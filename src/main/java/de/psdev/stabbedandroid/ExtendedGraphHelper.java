@@ -18,11 +18,14 @@ package de.psdev.stabbedandroid;
 
 import android.content.Context;
 import dagger.ObjectGraph;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 public final class ExtendedGraphHelper {
+    private static final Logger LOG = LoggerFactory.getLogger(ExtendedGraphHelper.class);
 
     @Nullable
     private ObjectGraph mExtendedGraph;
@@ -47,7 +50,7 @@ public final class ExtendedGraphHelper {
      */
     void inject(final Object object) {
         if (mExtendedGraph == null) {
-            throw new IllegalStateException("Used inject outside of activity lifecycle, or call to onCreate missing.");
+            LOG.warn("Used inject outside of activity lifecycle, or call to onCreate missing.");
         }
         mExtendedGraph.inject(object);
     }

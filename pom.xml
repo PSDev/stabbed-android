@@ -55,6 +55,7 @@
         <support-v4.version>r7</support-v4.version>
         <dagger.version>1.1.0</dagger.version>
         <jsr305.version>2.0.2</jsr305.version>
+        <slf4j-api.version>1.7.5</slf4j-api.version>
 
         <!-- Plugin Versions -->
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
@@ -103,6 +104,13 @@
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <version>${jsr305.version}</version>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
         </dependency>
 
     </dependencies>
