@@ -2,7 +2,7 @@ package de.psdev.stabbedandroid;
 
 import dagger.ObjectGraph;
 
-public interface Stabbed {
+public interface StabbedContext {
     /**
      * Inject the supplied {@code object} using the contexts graph.
      */

@@ -24,7 +24,7 @@ public abstract class StabbedDialogFragment extends DialogFragment {
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ((Stabbed) getActivity()).inject(this);
+        ((StabbedContext) getActivity()).inject(this);
     }
 
 }

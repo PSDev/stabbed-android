@@ -21,7 +21,7 @@ import dagger.ObjectGraph;
 
 import java.util.List;
 
-public abstract class StabbedApplication extends Application implements Stabbed {
+public abstract class StabbedApplication extends Application implements StabbedContext {
 
     private ObjectGraph mApplicationGraph;
 

@@ -22,7 +22,7 @@ import dagger.ObjectGraph;
 
 import java.util.List;
 
-public abstract class StabbedSherlockFragmentActivity extends SherlockFragmentActivity implements Stabbed {
+public abstract class StabbedSherlockFragmentActivity extends SherlockFragmentActivity implements StabbedContext {
 
     private final ExtendedGraphHelper mExtendedGraphHelper = new ExtendedGraphHelper();
 
