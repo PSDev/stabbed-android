@@ -1,8 +1,13 @@
 Change Log
 ==========
 
-Version 1.0.3 *(2013-11-16)*
+Version 1.0.4 *(IN DEVELOPMENT)*
 --------------------------------
+
+* Added stabbed DialogFragments
+
+Version 1.0.3 *(2013-11-16)*
+----------------------------
 
 * Replaced exception with logging a warning when using inject before the graph has been created
 * Added extensive test coverage
@@ -22,6 +27,6 @@ Version 1.0.1 *(2013-10-20)*
 * Fix wrong creation of activity graph
 
 Version 1.0.0 *(2013-10-20)* *DO NOT USE*
-----------------------------
+-----------------------------------------
 
 * Initial release.
