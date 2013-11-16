@@ -16,14 +16,14 @@
 
 package de.psdev.stabbedandroid;
 
-import javax.inject.Qualifier;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import java.util.Arrays;
+import java.util.List;
 
-/**
- * Qualifier annotation to explicitly differentiate dependencies between application and activity context.
- */
-@Qualifier
-@Retention(RetentionPolicy.RUNTIME)
-public @interface ForApplication {
+public class TestStabbedApplication extends StabbedApplication {
+
+    @Override
+    protected List<Object> getModules() {
+        return Arrays.<Object>asList(new TestModule(this));
+    }
+
 }

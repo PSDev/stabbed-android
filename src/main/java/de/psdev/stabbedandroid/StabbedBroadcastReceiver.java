@@ -24,7 +24,7 @@ import java.util.List;
 
 public abstract class StabbedBroadcastReceiver extends BroadcastReceiver {
 
-    ExtendedGraphHelper mExtendedGraphHelper = new ExtendedGraphHelper();
+    private final ExtendedGraphHelper mExtendedGraphHelper = new ExtendedGraphHelper();
 
     @Override
     public final void onReceive(final Context context, final Intent intent) {
@@ -35,6 +35,8 @@ public abstract class StabbedBroadcastReceiver extends BroadcastReceiver {
         mExtendedGraphHelper.onDestroy();
     }
 
+    protected abstract void handleReceive(final Context context, final Intent intent);
+
     /**
      * A list of modules to use for the individual receiver graph. Subclasses can override this
      * method to provide additional modules provided they call and include the modules returned by
@@ -42,5 +44,4 @@ public abstract class StabbedBroadcastReceiver extends BroadcastReceiver {
      */
     protected abstract List<Object> getModules();
 
-    protected abstract void handleReceive(final Context context, final Intent intent);
 }

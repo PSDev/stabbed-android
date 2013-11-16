@@ -17,6 +17,7 @@
 package de.psdev.stabbedandroid;
 
 import android.app.Service;
+import dagger.ObjectGraph;
 
 import java.util.List;
 
@@ -34,6 +35,10 @@ public abstract class StabbedService extends Service {
     public void onDestroy() {
         mExtendedGraphHelper.onDestroy();
         super.onDestroy();
+    }
+
+    ObjectGraph getServiceGraph() {
+        return mExtendedGraphHelper.getExtendedGraph();
     }
 
     /**

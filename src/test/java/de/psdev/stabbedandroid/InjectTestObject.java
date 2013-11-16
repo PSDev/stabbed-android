@@ -16,14 +16,12 @@
 
 package de.psdev.stabbedandroid;
 
-import javax.inject.Qualifier;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import android.content.Context;
 
-/**
- * Qualifier annotation to explicitly differentiate dependencies between application and activity context.
- */
-@Qualifier
-@Retention(RetentionPolicy.RUNTIME)
-public @interface ForApplication {
+import javax.inject.Inject;
+
+public class InjectTestObject {
+
+    @Inject
+    Context mContext;
 }

@@ -49,10 +49,11 @@ public final class ExtendedGraphHelper {
      * Inject the supplied {@code object} using the activity-specific graph.
      */
     void inject(final Object object) {
-        if (mExtendedGraph == null) {
+        if (mExtendedGraph != null) {
+            mExtendedGraph.inject(object);
+        } else {
             LOG.warn("Used inject outside of activity lifecycle, or call to onCreate missing.");
         }
-        mExtendedGraph.inject(object);
     }
 
     @Nullable
