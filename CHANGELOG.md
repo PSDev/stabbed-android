@@ -4,7 +4,8 @@ Change Log
 Version 1.0.4 *(IN DEVELOPMENT)*
 --------------------------------
 
-* Added stabbed DialogFragments
+* Added stabbed `DialogFragment`s
+* Added stabbed `ListFragment`s
 
 Version 1.0.3 *(2013-11-16)*
 ----------------------------
