@@ -1,10 +1,11 @@
 Change Log
 ==========
 
-Version 1.0.3 *(IN DEVELOPMENT)*
+Version 1.0.3 *(2013-11-16)*
 --------------------------------
 
 * Replaced exception with logging a warning when using inject before the graph has been created
+* Added extensive test coverage
 
 Version 1.0.2 *(2013-10-30)*
 ----------------------------
