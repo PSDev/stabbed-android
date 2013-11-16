@@ -22,7 +22,7 @@ import dagger.ObjectGraph;
 
 import java.util.List;
 
-public abstract class StabbedSupportFragmentActivity extends FragmentActivity {
+public abstract class StabbedSupportFragmentActivity extends FragmentActivity implements Stabbed {
 
     private final ExtendedGraphHelper mExtendedGraphHelper = new ExtendedGraphHelper();
 
@@ -46,14 +46,14 @@ public abstract class StabbedSupportFragmentActivity extends FragmentActivity {
      */
     protected abstract List<Object> getModules();
 
-    /**
-     * Inject the supplied {@code object} using the activity-specific graph.
-     */
-    void inject(final Object object) {
+
+    @Override
+    public void inject(final Object object) {
         mExtendedGraphHelper.inject(object);
     }
 
-    ObjectGraph getActivityGraph() {
+    @Override
+    public ObjectGraph getObjectGraph() {
         return mExtendedGraphHelper.getExtendedGraph();
     }
 }

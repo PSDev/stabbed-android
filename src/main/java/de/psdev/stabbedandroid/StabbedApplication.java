@@ -21,7 +21,7 @@ import dagger.ObjectGraph;
 
 import java.util.List;
 
-public abstract class StabbedApplication extends Application {
+public abstract class StabbedApplication extends Application implements Stabbed {
 
     private ObjectGraph mApplicationGraph;
 
@@ -32,7 +32,7 @@ public abstract class StabbedApplication extends Application {
         // Create the application graph
         mApplicationGraph = ObjectGraph.create(getModules().toArray());
         // Inject ourselves so subclasses will have dependencies fulfilled when this method returns.
-        mApplicationGraph.inject(this);
+        inject(this);
     }
 
     /**
@@ -41,7 +41,13 @@ public abstract class StabbedApplication extends Application {
      */
     protected abstract List<Object> getModules();
 
-    ObjectGraph getApplicationGraph() {
+    @Override
+    public void inject(final Object object) {
+        mApplicationGraph.inject(object);
+    }
+
+    @Override
+    public ObjectGraph getObjectGraph() {
         return mApplicationGraph;
     }
 }

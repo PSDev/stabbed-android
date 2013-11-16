@@ -24,7 +24,7 @@ public abstract class StabbedSherlockFragment extends SherlockFragment {
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ((StabbedSherlockFragmentActivity) getActivity()).inject(this);
+        ((Stabbed) getActivity()).inject(this);
     }
 
 }

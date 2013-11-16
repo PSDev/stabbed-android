@@ -48,18 +48,18 @@ public class StabbedSherlockPreferenceActivityTest {
 
     @Test
     public void testActivityGraphShouldExistAfterOnCreate() throws Exception {
-        assertNull("ActivityGraph should not exist", mActivity.getActivityGraph());
+        assertNull("ActivityGraph should not exist", mActivity.getObjectGraph());
         mActivityController.create();
-        assertNotNull("ActivityGraph should exist", mActivity.getActivityGraph());
+        assertNotNull("ActivityGraph should exist", mActivity.getObjectGraph());
     }
 
     @Test
     public void testActivityGraphShouldNotExistAfterOnDestroy() throws Exception {
-        assertNull("ActivityGraph should not exist", mActivity.getActivityGraph());
+        assertNull("ActivityGraph should not exist", mActivity.getObjectGraph());
         mActivityController.create();
-        assertNotNull("ActivityGraph should exist", mActivity.getActivityGraph());
+        assertNotNull("ActivityGraph should exist", mActivity.getObjectGraph());
         mActivityController.destroy();
-        assertNull("ActivityGraph should not exist anymore", mActivity.getActivityGraph());
+        assertNull("ActivityGraph should not exist anymore", mActivity.getObjectGraph());
     }
 
     @Test

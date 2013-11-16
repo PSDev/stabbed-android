@@ -32,8 +32,8 @@ public final class ExtendedGraphHelper {
 
     void onCreate(final Context context, final List<Object> modules, final Object target) {
         // Create the activity graph by .plus-ing our modules onto the application graph.
-        final StabbedApplication application = (StabbedApplication) context.getApplicationContext();
-        mExtendedGraph = application.getApplicationGraph().plus(modules.toArray());
+        final Stabbed application = (Stabbed) context.getApplicationContext();
+        mExtendedGraph = application.getObjectGraph().plus(modules.toArray());
 
         // Inject activity so subclasses will have dependencies fulfilled when this method returns.
         mExtendedGraph.inject(target);

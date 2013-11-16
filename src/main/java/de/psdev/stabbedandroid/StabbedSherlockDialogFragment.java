@@ -17,9 +17,9 @@
 package de.psdev.stabbedandroid;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import com.actionbarsherlock.app.SherlockDialogFragment;
 
-public abstract class StabbedSupportFragment extends Fragment {
+public abstract class StabbedSherlockDialogFragment extends SherlockDialogFragment {
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {

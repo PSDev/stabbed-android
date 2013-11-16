@@ -16,15 +16,13 @@
 
 package de.psdev.stabbedandroid;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.content.Context;
 
-public abstract class StabbedSupportFragment extends Fragment {
+import javax.inject.Inject;
 
-    @Override
-    public void onActivityCreated(final Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        ((Stabbed) getActivity()).inject(this);
-    }
+public class TestStabbedSupportDialogFragment extends StabbedSupportDialogFragment {
+
+    @Inject
+    Context mContext;
 
 }

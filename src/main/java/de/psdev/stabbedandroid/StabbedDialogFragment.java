@@ -16,10 +16,10 @@
 
 package de.psdev.stabbedandroid;
 
+import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
-public abstract class StabbedSupportFragment extends Fragment {
+public abstract class StabbedDialogFragment extends DialogFragment {
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
