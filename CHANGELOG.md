@@ -10,8 +10,8 @@ Version 1.0.3 *(2013-11-16)*
 Version 1.0.2 *(2013-10-30)*
 ----------------------------
 
-* Added @Nullable annotations where applicable
-* Added @ForActivity and @ForApplication qualifier annotations
+* Added `@Nullable` annotations where applicable
+* Added `@ForActivity` and `@ForApplication` qualifier annotations
 * Added StabbedSherlockPreferenceActivity
 * Added StabbedService
 * Added StabbedBroadcastReceiver
