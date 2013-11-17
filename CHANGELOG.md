@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-Version 1.0.4 *(IN DEVELOPMENT)*
+Version 1.0.4 *(2013-11-17)*
 --------------------------------
 
 * Added stabbed `DialogFragment`s
