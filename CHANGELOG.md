@@ -6,6 +6,7 @@ Version 1.0.4 *(IN DEVELOPMENT)*
 
 * Added stabbed `DialogFragment`s
 * Added stabbed `ListFragment`s
+* Added stabbed `PreferenceFragment`
 
 Version 1.0.3 *(2013-11-16)*
 ----------------------------
