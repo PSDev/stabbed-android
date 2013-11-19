@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.0.5 *(2013-11-19)*
+--------------------------------
+
+* Fixed scope of slf4j-simple which should only be used in tests
+
 Version 1.0.4 *(2013-11-17)*
 --------------------------------
 
