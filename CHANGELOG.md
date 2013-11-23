@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.0.6 *(IN DEVELOPMENT)*
+--------------------------------
+
+* Add StabbedIntentService 
+* Change StabbedService to implement StabbedContext
+
 Version 1.0.5 *(2013-11-19)*
 --------------------------------
 
