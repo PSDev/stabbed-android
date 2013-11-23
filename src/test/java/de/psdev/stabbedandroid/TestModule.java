@@ -44,6 +44,7 @@ import javax.inject.Singleton;
         // Receiver
         TestStabbedBroadcastReceiver.class,
         // Service
+        TestStabbedIntentService.class,
         TestStabbedService.class,
         // Tests
         ExtendedGraphHelperTest.class,

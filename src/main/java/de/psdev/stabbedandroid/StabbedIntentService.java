@@ -16,14 +16,18 @@
 
 package de.psdev.stabbedandroid;
 
-import android.app.Service;
+import android.app.IntentService;
 import dagger.ObjectGraph;
 
 import java.util.List;
 
-public abstract class StabbedService extends Service implements StabbedContext {
+public abstract class StabbedIntentService extends IntentService implements StabbedContext {
 
     private final ExtendedGraphHelper mExtendedGraphHelper = new ExtendedGraphHelper();
+
+    protected StabbedIntentService(final String name) {
+        super(name);
+    }
 
     @Override
     public void onCreate() {
@@ -53,6 +57,4 @@ public abstract class StabbedService extends Service implements StabbedContext {
      * calling {@code super.getModules()}.
      */
     protected abstract List<Object> getModules();
-
-
 }
