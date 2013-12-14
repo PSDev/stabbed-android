@@ -73,6 +73,18 @@ public class StabbedIntentServiceTest {
         assertNull("ObjectGraph should not exist anymore", mTestStabbedIntentService.getObjectGraph());
     }
 
+    @Test
+    public void testInjectShouldWorkAfterOnCreate() throws Exception {
+        final InjectTestObject injectTestObject = new InjectTestObject();
+        assertNull("mContext in injectTestObject should be null", injectTestObject.mContext);
+        mActivity.inject(injectTestObject);
+        assertNull("mContext in injectTestObject should still be null", injectTestObject.mContext);
+        mActivityController.create();
+        mActivity.inject(injectTestObject);
+        assertNotNull("mContext in injectTestObject should not be null anymore", injectTestObject.mContext);
+        assertSame("mContext should be the application", Robolectric.application, injectTestObject.mContext);
+    }
+
     @After
     public void tearDown() throws Exception {
         mActivityController = null;
