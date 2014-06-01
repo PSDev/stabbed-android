@@ -1,7 +1,10 @@
 Change Log
 ==========
 
-Version 1.0.6 *(IN DEVELOPMENT)*
+Version 1.0.7 *(IN DEVELOPMENT)*
+--------------------------------
+
+Version 1.0.6 *(2014-06-01)*
 --------------------------------
 
 * Add StabbedIntentService 
