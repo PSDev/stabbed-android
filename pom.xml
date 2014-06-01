@@ -52,20 +52,22 @@
 
         <!-- Dependency Versions -->
         <junit.version>4.11</junit.version>
-        <robolectric.version>2.2</robolectric.version>
+        <robolectric.version>2.3</robolectric.version>
         <android.version>4.1.1.4</android.version>
         <support-v4.version>r7</support-v4.version>
-        <dagger.version>1.1.0</dagger.version>
-        <jsr305.version>2.0.2</jsr305.version>
-        <slf4j-api.version>1.7.5</slf4j-api.version>
+        <dagger.version>1.2.1</dagger.version>
+        <actionbarsherlock.version>4.4.0</actionbarsherlock.version>
+        <jsr305.version>2.0.3</jsr305.version>
+        <slf4j-api.version>1.7.7</slf4j-api.version>
 
         <!-- Plugin Versions -->
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
-        <maven-release-plugin.version>2.4.1</maven-release-plugin.version>
-        <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
+        <maven-release-plugin.version>2.5</maven-release-plugin.version>
+        <maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.6.4.201312101107</jacoco-maven-plugin.version>
+        <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
     </properties>
 
     <dependencies>
@@ -126,7 +128,7 @@
         <dependency>
             <groupId>com.actionbarsherlock</groupId>
             <artifactId>actionbarsherlock</artifactId>
-            <version>4.4.0</version>
+            <version>${actionbarsherlock.version}</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
@@ -185,6 +187,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <argLine>-XX:-UseSplitVerifier</argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
