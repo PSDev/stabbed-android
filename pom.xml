@@ -193,7 +193,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <argLine>-XX:-UseSplitVerifier</argLine>
+                    <argLine>${argLine} -XX:-UseSplitVerifier</argLine>
                 </configuration>
             </plugin>
             <plugin>
