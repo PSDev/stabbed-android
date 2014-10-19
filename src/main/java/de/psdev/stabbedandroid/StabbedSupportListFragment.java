@@ -17,15 +17,20 @@
 package de.psdev.stabbedandroid;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public abstract class StabbedSupportListFragment extends ListFragment {
+
+    private final AtomicBoolean mInjected = new AtomicBoolean();
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ((StabbedContext) getActivity()).inject(this);
+        if (mInjected.compareAndSet(false, true)) {
+            ((StabbedContext) getActivity()).inject(this);
+        }
     }
 
 }

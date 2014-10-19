@@ -19,12 +19,18 @@ package de.psdev.stabbedandroid;
 import android.app.Fragment;
 import android.os.Bundle;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public abstract class StabbedFragment extends Fragment {
+
+    private final AtomicBoolean mInjected = new AtomicBoolean();
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ((StabbedContext) getActivity()).inject(this);
+        if (mInjected.compareAndSet(false, true)) {
+            ((StabbedContext) getActivity()).inject(this);
+        }
     }
 
 }

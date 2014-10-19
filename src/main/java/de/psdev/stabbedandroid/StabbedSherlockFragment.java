@@ -19,12 +19,18 @@ package de.psdev.stabbedandroid;
 import android.os.Bundle;
 import com.actionbarsherlock.app.SherlockFragment;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public abstract class StabbedSherlockFragment extends SherlockFragment {
+
+    private final AtomicBoolean mInjected = new AtomicBoolean();
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ((StabbedContext) getActivity()).inject(this);
+        if (mInjected.compareAndSet(false, true)) {
+            ((StabbedContext) getActivity()).inject(this);
+        }
     }
 
 }

@@ -4,6 +4,8 @@ Change Log
 Version 1.0.7 *(IN DEVELOPMENT)*
 --------------------------------
 
+* Fixed duplicate injections due to onActivityCreated being called multiple times
+
 Version 1.0.6 *(2014-06-01)*
 --------------------------------
 
