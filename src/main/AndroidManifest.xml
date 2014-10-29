@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1000007"
+    android:versionName="1.0.7-SNAPSHOT"
+    package="de.psdev.stabbedandroid">
+
+    <!-- SDK conditions -->
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="21" />
+
+    <!-- Application -->
+    <application />
+</manifest>

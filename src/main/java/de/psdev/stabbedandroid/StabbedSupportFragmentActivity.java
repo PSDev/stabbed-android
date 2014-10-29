@@ -46,7 +46,6 @@ public abstract class StabbedSupportFragmentActivity extends FragmentActivity im
      */
     protected abstract List<Object> getModules();
 
-
     @Override
     public void inject(final Object object) {
         mExtendedGraphHelper.inject(object);

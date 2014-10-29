@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.1.0 *(IN DEVELOPMENT)*
+--------------------------------
+
+* **Switched to aar packaging**
+* Added StabbedActionBarActivity
+
 Version 1.0.8 *(2015-01-23)*
 --------------------------------
 
