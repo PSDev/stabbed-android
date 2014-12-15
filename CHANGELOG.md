@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.0.8 *(2015-01-23)*
+--------------------------------
+
+* Add default modules for activity and application scope for easier use of standard android services
+
 Version 1.0.7 *(2014-11-15)*
 --------------------------------
 

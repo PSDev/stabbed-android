@@ -17,6 +17,7 @@ bin
 # Android #
 ###########
 gen
+gen-external-apklibs/
 
 # MacOsX #
 ##########
