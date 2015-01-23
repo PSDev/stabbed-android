@@ -15,7 +15,7 @@
     <description>Base classes for using Dagger in Android Apps.</description>
     <url>http://psdev.de/stabbed-android/</url>
     <inceptionYear>2013</inceptionYear>
-    <version>1.0.8-SNAPSHOT</version>
+    <version>1.0.8</version>
 
     <developers>
         <developer>
@@ -36,7 +36,7 @@
         <url>https://github.com/PSDev/stabbed-android</url>
         <connection>scm:git:git://github.com/PSDev/stabbed-android.git</connection>
         <developerConnection>scm:git:git@github.com:PSDev/stabbed-android.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>1.0.8</tag>
     </scm>
 
     <issueManagement>
