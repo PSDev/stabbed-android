@@ -16,42 +16,43 @@
 
 package de.psdev.stabbedandroid;
 
-import android.app.Service;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import dagger.ObjectGraph;
 
 import java.util.List;
 
-public abstract class StabbedService extends Service implements StabbedContext {
+public abstract class StabbedActionBarActivity extends ActionBarActivity implements StabbedContext {
 
     private final ExtendedGraphHelper mExtendedGraphHelper = new ExtendedGraphHelper();
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         mExtendedGraphHelper.onCreate(this, getModules(), this);
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         mExtendedGraphHelper.onDestroy();
         super.onDestroy();
     }
 
-    @Override
-    public ObjectGraph getObjectGraph() {
-        return mExtendedGraphHelper.getExtendedGraph();
-    }
+    /**
+     * A list of modules to use for the individual activity graph. Subclasses can override this
+     * method to provide additional modules provided they call and include the modules returned by
+     * calling {@code super.getModules()}.
+     */
+    protected abstract List<Object> getModules();
 
     @Override
     public void inject(final Object object) {
         mExtendedGraphHelper.inject(object);
     }
 
-    /**
-     * A list of modules to use for the individual service graph. Subclasses can override this
-     * method to provide additional modules provided they call and include the modules returned by
-     * calling {@code super.getModules()}.
-     */
-    protected abstract List<Object> getModules();
-
+    @Override
+    public ObjectGraph getObjectGraph() {
+        return mExtendedGraphHelper.getExtendedGraph();
+    }
 }

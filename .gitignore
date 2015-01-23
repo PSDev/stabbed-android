@@ -1,22 +1,22 @@
 # Intellij #
 ############
-.idea
+.idea/
 *.iml
 
 # Eclipse #
 ###########
-.settings
+.settings/
 .project
 .classpath
 
 # Build Output #
 ################
-target
-bin
+target/
+bin/
 
 # Android #
 ###########
-gen
+gen/
 gen-external-apklibs/
 
 # MacOsX #

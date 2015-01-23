@@ -16,20 +16,19 @@
 
 package de.psdev.stabbedandroid;
 
-import javax.inject.Qualifier;
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import android.content.Context;
 
-import static java.lang.annotation.ElementType.*;
+import javax.inject.Inject;
+import java.util.Collections;
+import java.util.List;
 
-/**
- * Qualifier annotation to explicitly differentiate dependencies between application and activity context.
- */
-@Qualifier
-@Target({ METHOD, CONSTRUCTOR, FIELD, PARAMETER })
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface ForApplication {
+public class TestStabbedActionBarActivity extends StabbedActionBarActivity {
+
+    @Inject
+    Context mContext;
+
+    @Override
+    protected List<Object> getModules() {
+        return Collections.emptyList();
+    }
 }
