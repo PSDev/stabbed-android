@@ -1,4 +1,4 @@
-Stabbed Android [![Build Status](http://ci.psdev.de/job/PSDevStabbedAndroid/badge/icon)](http://ci.psdev.de/job/PSDevStabbedAndroid/) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.psdev/stabbed-android/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.psdev/stabbed-android)
+Stabbed Android [![Build Status](https://ci.psdev.de/job/PSDevStabbedAndroid/badge/icon)](https://ci.psdev.de/job/PSDevStabbedAndroid/) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.psdev/stabbed-android/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.psdev/stabbed-android)
 ==========
 
 Base classes for using [Squares Dagger][1] in Android Apps.
