@@ -29,18 +29,13 @@ import javax.inject.Singleton;
         // Activities
         TestStabbedActivity.class,
         TestStabbedSupportFragmentActivity.class,
-        TestStabbedSherlockFragmentActivity.class,
-        TestStabbedSherlockPreferenceActivity.class,
         // Fragments
         TestStabbedFragment.class,
         TestStabbedListFragment.class,
         TestStabbedSupportFragment.class,
         TestStabbedSupportListFragment.class,
-        TestStabbedSherlockFragment.class,
-        TestStabbedSherlockListFragment.class,
         TestStabbedDialogFragment.class,
         TestStabbedSupportDialogFragment.class,
-        TestStabbedSherlockDialogFragment.class,
         // Receiver
         TestStabbedBroadcastReceiver.class,
         // Service

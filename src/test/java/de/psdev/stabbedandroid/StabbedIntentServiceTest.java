@@ -21,13 +21,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
+import org.robolectric.internal.Shadow;
+import org.robolectric.shadows.ShadowApplication;
 import org.robolectric.util.ActivityController;
 
 import static org.junit.Assert.*;
@@ -35,6 +39,7 @@ import static org.junit.Assert.*;
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "src/test/resources/AndroidManifest.xml")
 public class StabbedIntentServiceTest {
+
     private ActivityController<TestStabbedActivity> mActivityController;
     private TestStabbedActivity mActivity;
     private TestStabbedIntentService mTestStabbedIntentService;
@@ -43,26 +48,27 @@ public class StabbedIntentServiceTest {
     public void setUp() throws Exception {
         mActivityController = Robolectric.buildActivity(TestStabbedActivity.class);
         mActivity = mActivityController.get();
-        mTestStabbedIntentService = Robolectric.newInstanceOf(TestStabbedIntentService.class);
+        mTestStabbedIntentService = Shadow.newInstanceOf(TestStabbedIntentService.class);
     }
 
     @Test
     public void testBoundServiceHasDependencyInjected() throws Exception {
         mActivityController.create().start().resume().visible();
-        final Intent serviceIntent = new Intent(Robolectric.application, TestStabbedIntentService.class);
+        final Intent serviceIntent = new Intent(RuntimeEnvironment.application, TestStabbedIntentService.class);
         final String servicePackageName = TestStabbedIntentService.class.getPackage().getName();
         final ComponentName name = new ComponentName(servicePackageName, TestStabbedIntentService.class.getName());
         assertNull("ObjectGraph should not yet exist", mTestStabbedIntentService.getObjectGraph());
         mTestStabbedIntentService.onCreate();
         final IBinder serviceBinder = mTestStabbedIntentService.onBind(serviceIntent);
-        Robolectric.getShadowApplication().setComponentNameAndServiceForBindService(name, serviceBinder);
+        ShadowApplication.getInstance().setComponentNameAndServiceForBindService(name, serviceBinder);
         assertTrue("Service has been bound", mActivity.bindService(serviceIntent, new ServiceConnection() {
+
             @Override
             public void onServiceConnected(final ComponentName name, final IBinder service) {
                 TestStabbedIntentService.LocalBinder binder = (TestStabbedIntentService.LocalBinder) service;
                 assertNotNull("ObjectGraph should exist", binder.getService().getObjectGraph());
                 assertNotNull("mContext should be injected", binder.getService().mContext);
-                assertSame("mContext should be Application", Robolectric.application, binder.getService().mContext);
+                assertSame("mContext should be Application", RuntimeEnvironment.application, binder.getService().mContext);
             }
 
             @Override
@@ -82,7 +88,7 @@ public class StabbedIntentServiceTest {
         mActivityController.create();
         mActivity.inject(injectTestObject);
         assertNotNull("mContext in injectTestObject should not be null anymore", injectTestObject.mContext);
-        assertSame("mContext should be the application", Robolectric.application, injectTestObject.mContext);
+        assertSame("mContext should be the application", RuntimeEnvironment.application, injectTestObject.mContext);
     }
 
     @After

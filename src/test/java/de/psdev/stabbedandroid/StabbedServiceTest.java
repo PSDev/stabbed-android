@@ -27,7 +27,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
+import org.robolectric.internal.Shadow;
+import org.robolectric.shadows.ShadowApplication;
 import org.robolectric.util.ActivityController;
 
 import static org.junit.Assert.*;
@@ -43,26 +46,26 @@ public class StabbedServiceTest {
     public void setUp() throws Exception {
         mActivityController = Robolectric.buildActivity(TestStabbedActivity.class);
         mActivity = mActivityController.get();
-        mTestStabbedService = Robolectric.newInstanceOf(TestStabbedService.class);
+        mTestStabbedService = Shadow.newInstanceOf(TestStabbedService.class);
     }
 
     @Test
     public void testBoundServiceHasDependencyInjected() throws Exception {
         mActivityController.create().start().resume().visible();
-        final Intent serviceIntent = new Intent(Robolectric.application, TestStabbedService.class);
+        final Intent serviceIntent = new Intent(RuntimeEnvironment.application, TestStabbedService.class);
         final String servicePackageName = TestStabbedService.class.getPackage().getName();
         final ComponentName name = new ComponentName(servicePackageName, TestStabbedService.class.getName());
         assertNull("ObjectGraph should not yet exist", mTestStabbedService.getObjectGraph());
         mTestStabbedService.onCreate();
         final IBinder serviceBinder = mTestStabbedService.onBind(serviceIntent);
-        Robolectric.getShadowApplication().setComponentNameAndServiceForBindService(name, serviceBinder);
+        ShadowApplication.getInstance().setComponentNameAndServiceForBindService(name, serviceBinder);
         assertTrue("Service has been bound", mActivity.bindService(serviceIntent, new ServiceConnection() {
             @Override
             public void onServiceConnected(final ComponentName name, final IBinder service) {
                 TestStabbedService.LocalBinder binder = (TestStabbedService.LocalBinder) service;
                 assertNotNull("ObjectGraph should exist", binder.getService().getObjectGraph());
                 assertNotNull("mContext should be injected", binder.getService().mContext);
-                assertSame("mContext should be Application", Robolectric.application, binder.getService().mContext);
+                assertSame("mContext should be Application", RuntimeEnvironment.application, binder.getService().mContext);
             }
 
             @Override

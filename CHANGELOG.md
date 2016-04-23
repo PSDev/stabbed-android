@@ -5,6 +5,7 @@ Version 1.1.0 *(IN DEVELOPMENT)*
 --------------------------------
 
 * **Switched to aar packaging**
+* **Removed ActionBarSherlock support**
 * Added StabbedActionBarActivity
 
 Version 1.0.8 *(2015-01-23)*

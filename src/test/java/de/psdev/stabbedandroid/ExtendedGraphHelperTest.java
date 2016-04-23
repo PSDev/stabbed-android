@@ -24,7 +24,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowApplication;
 
 import javax.inject.Inject;
 
@@ -51,14 +53,14 @@ public class ExtendedGraphHelperTest {
     @Test
     public void testOnCreate() throws Exception {
         assertNull("Context should not yet be injected", mContext);
-        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) Robolectric.application).getModules(), this);
+        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) RuntimeEnvironment.application).getModules(), this);
         assertNotNull("Context should be injected", mContext);
-        Assert.assertSame("Injected context should be current application", Robolectric.application, mContext);
+        Assert.assertSame("Injected context should be current application", RuntimeEnvironment.application, mContext);
     }
 
     @Test
     public void testOnDestroy() throws Exception {
-        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) Robolectric.application).getModules(), this);
+        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) RuntimeEnvironment.application).getModules(), this);
         assertNotNull("Extended graph should exist", mExtendedGraphHelper.getExtendedGraph());
         mExtendedGraphHelper.onDestroy();
         assertNull("Extended graph should not exist anymore", mExtendedGraphHelper.getExtendedGraph());
@@ -66,7 +68,7 @@ public class ExtendedGraphHelperTest {
 
     @Test
     public void testInject() throws Exception {
-        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) Robolectric.application).getModules(), this);
+        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) RuntimeEnvironment.application).getModules(), this);
         final InjectTestObject injectTestObject = new InjectTestObject();
         assertNull("Context should not yet be injected", injectTestObject.mContext);
         mExtendedGraphHelper.inject(injectTestObject);
@@ -75,7 +77,7 @@ public class ExtendedGraphHelperTest {
 
     @Test
     public void testGetExtendedGraph() throws Exception {
-        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) Robolectric.application).getModules(), this);
+        mExtendedGraphHelper.onCreate(mTestStabbedActivity, ((TestStabbedApplication) RuntimeEnvironment.application).getModules(), this);
         assertNotNull("Extended graph should exist", mExtendedGraphHelper.getExtendedGraph());
     }
 

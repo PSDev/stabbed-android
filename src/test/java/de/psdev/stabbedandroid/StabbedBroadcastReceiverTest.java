@@ -25,6 +25,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 import org.robolectric.util.ActivityController;
 
@@ -47,7 +48,7 @@ public class StabbedBroadcastReceiverTest {
             public void run() {
                 final Context context = mTestStabbedBroadcastReceiver.mContext;
                 assertNotNull("mContext should be available", context);
-                assertSame("mContext should be application", Robolectric.application, context);
+                assertSame("mContext should be application", RuntimeEnvironment.application, context);
             }
         };
         mTestStabbedBroadcastReceiver = new TestStabbedBroadcastReceiver(mRunInHandleReceive);
