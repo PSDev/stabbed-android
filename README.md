@@ -6,20 +6,21 @@ Base classes for using [Squares Dagger][1] in Android Apps.
 Download
 --------
 
-Download [the latest JAR][2] or grab via Maven:
+Download [the latest AAR][2] or grab via Maven:
 
 ```xml
 <dependency>
   <groupId>de.psdev</groupId>
   <artifactId>stabbed-android</artifactId>
-  <version>1.0.8</version>
+  <version>1.1.0</version>
+  <type>aar</type>
 </dependency>
 ```
 
 License
 -------
 
-    Copyright 2013 Philip Schiffer
+    Copyright 2013-2016 Philip Schiffer
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

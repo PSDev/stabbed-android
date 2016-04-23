@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-Version 1.1.0 *(IN DEVELOPMENT)*
+Version 1.1.0 *(2016-04-23)*
 --------------------------------
 
 * **Switched to aar packaging**
