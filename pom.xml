@@ -70,7 +70,7 @@
         <argLine>-XX:-UseSplitVerifier</argLine>
 
         <!-- Dependency Versions -->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <robolectric.version>3.0</robolectric.version>
 
         <android.version>6.0_r3</android.version>
